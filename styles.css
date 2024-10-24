@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Impact';
-    src: url('fonts/Impact.ttf') format('truetype'); /* Update the path if your font file is elsewhere */
+    src: url('fonts/Impact.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -27,8 +27,10 @@ body {
     position: absolute;
     top: 27%;
     left: 24%;
-    width: 930px;
-    height: 490px;
+    width: 80%; /* Changed to a percentage */
+    max-width: 930px; /* Keep the max width for larger screens */
+    height: auto; /* Allow height to adjust */
+    aspect-ratio: 930 / 490; /* Maintain aspect ratio */
     background-color: #474a80;
     z-index: 2;
     transition: transform 1s ease-in-out;
@@ -39,22 +41,13 @@ body {
     width: 30%;
     height: 100%;
     font-size: 11em;
-    font-family: 'Impact', sans-serif; /* Use Impact for the title */
+    font-family: 'Impact', sans-serif;
     font-weight: 500;
     color: #000000;
 }
 
-.p1 {
+.p1, .p2, .p3, .p4, .p5 {
     position: absolute;
-    top: -32%;
-    left: 29%;
-    transform: scale(1.1, 1.2); /* Changed fonts so this isnt necessary anymore */
-}
-
-.p2 {
-    position: absolute;
-    top: 6%;
-    left: -1%;
     transform: scale(1.1, 1.2);
 }
 
@@ -68,26 +61,6 @@ body {
     z-index: 3;
 }
 
-.p3 {
-    position: absolute; /* Also changed formatting so p3/4 aren't used right now, but I'm gonna leave these just in case */
-    top: 23%;
-    left: 71%;
-    transform: scale(1, 1);
-}
-
-.p4 {
-    position: absolute;
-    top: 45%;
-    left: 36%;
-    transform: scale(1, 1);
-}
-
-.p5 {
-    position: absolute;
-    top: 85%;
-    left: 3%;
-}
-
 .brown-box.exit {
     transform: translateX(83%) translateY(-29%);
 }
@@ -96,8 +69,10 @@ body {
     position: absolute;
     top: 14%;
     left: 49%;
-    width: 450px;
-    height: 600px;
+    width: 80%; /* Changed to a percentage */
+    max-width: 450px; /* Keep the max width for larger screens */
+    height: auto; /* Allow height to adjust */
+    aspect-ratio: 450 / 600; /* Maintain aspect ratio */
     background-color: #d8c6dc;
     background: radial-gradient(ellipse,#c6d7e5, #81717f);
     display: flex;
@@ -124,15 +99,16 @@ body {
 }
 
 .headshot {
-    width: 550px;
-    height: 550px;
+    width: 60%; /* Changed to a percentage */
+    max-width: 550px; /* Keep the max width for larger screens */
+    height: auto; /* Allow height to adjust */
     border: none;
     position: absolute;
     bottom: 0%;
 }
 
 .button {
-    font-family: 'Fira Code', monospace; /* Code editor-like font */
+    font-family: 'Fira Code', monospace;
     font-size: 14px;
     letter-spacing: 2px;
     text-decoration: none;
@@ -144,7 +120,6 @@ body {
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
     position: relative;
     user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     transition: transform 0.3s, background-color 0.3s;
     margin-top: 35px;
@@ -167,6 +142,28 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .title {
+        font-size: 6em; /* Adjust font size for smaller screens */
+    }
+
+    .p1, .p2, .p3, .p4, .p5 {
+        transform: scale(1, 1); /* Adjust scaling for smaller screens */
+    }
+
+    .brown-box {
+        width: 90%; /* Make brown box wider on smaller screens */
+    }
+
+    .gray-box {
+        width: 90%; /* Make gray box wider on smaller screens */
+    }
+
+    .headshot {
+        width: 80%; /* Adjust headshot width */
+    }
+}
+
 .cream-box {
     position: absolute;
     top: 50%;
@@ -186,7 +183,7 @@ body {
     max-width: 800px;
     color: #000;
     text-align: left;
-    font-family: 'Fira Code', monospace; /* Code editor-like font for text content */
+    font-family: 'Fira Code', monospace;
     margin: auto;
 }
 
@@ -198,16 +195,16 @@ body {
 .content p {
     font-size: 1.2rem;
     line-height: 1.6;
-    margin-right: 1px;;
 }
 
 .button-container {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     gap: 30px;
     margin-bottom: 50px;
 }
-.list, .website, .soon{
+
+.list, .website, .soon {
     width: 200px;
     height: 130px;
     overflow: hidden;
@@ -215,11 +212,10 @@ body {
 }
 
 .button-img {
-    width: 200px; 
+    width: 100%; /* Use percentage for responsiveness */
     height: auto;
     display: block;
     margin-top: -34px;
-    margin-right: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
     filter: grayscale(60%);
@@ -230,13 +226,14 @@ body {
 }
 
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 20; /* Make sure the modal appears above everything else */
+    z-index: 20;
     left: 50%;
     top: 40%;
-    width: 700px;
-    height: 400px;
+    width: 90%; /* Use percentage for responsiveness */
+    max-width: 700px; /* Keep max width */
+    height: auto; /* Allow height to adjust */
     background-color: rgb(197, 179, 172);
     box-shadow: 0 10px 50px rgb(0, 0, 0);
 }
@@ -245,7 +242,7 @@ body {
     position: relative;
     padding: 8%;
     text-align: left;
-    cursor: grab; /* Indicate that the box is draggable */
+    cursor: grab;
 }
 
 .close:hover,
@@ -260,50 +257,48 @@ body {
 #contact ul {
     list-style-type: none; 
     padding-left: 15%;
+}
 
-  }
 #contact a {
-    color: #3498db; /* Cool blue color for links */
+    color: #3498db; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
-  }
-  
-  #contact a:hover {
-    color: #e74c3c; /* Change to a red shade on hover */
-    transform: scale(1.1); /* Slightly enlarge the link on hover */
-  }
-  
-  #contact a:active {
-    transform: scale(0.9); /* Slightly shrink when clicked */
-  }
+}
 
-  #contact li {
+#contact a:hover {
+    color: #e74c3c; 
+    transform: scale(1.1);
+}
+
+#contact a:active {
+    transform: scale(0.9);
+}
+
+#contact li {
     float: left;
     display: block;
     text-align: center;
     padding: 58px;
     padding-top: 10px;
     font-size: 20px;
-    
 }
-  
-  #contact ul li {
-    margin-bottom: 10px; /* Add some spacing between list items */
-  }
-  
-  #contact h2 {
+
+#contact ul li {
+    margin-bottom: 10px; 
+}
+
+#contact h2 {
     font-size: 35px; 
     color: #2c3e50; 
     margin-bottom: 20px; 
     text-align: center;
-  }
-  
-  #contact p {
+}
+
+#contact p {
     font-size: 15px; 
     color: #34495e;
     text-align: center;
     width: 750px;
     margin-left: 60px;
-  }
-  
+}
