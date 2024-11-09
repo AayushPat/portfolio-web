@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aayush Patel Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Brown Rectangle Box(changed the color) -->
+        <div class="brown-box">
+            <div class="title">
+                <p class="p1">port</p>
+                <p class="p2">folio</p>
+                <div class="mask"></div>
+            </div>
+            <div class="sub-title">
+                <p class="p5">Aayush Patel</p>
+            </div>
+        </div>
+
+        <!-- Grayish Rectangle with Headshot and Buttons(changed the color)-->
+        <div class="gray-box">
+            <div class="buttons">
+                <button class="button about" id="aboutBtn">About Me</button>
+                <button class="button projects" id="projectsBtn">Projects</button>
+                <button class="button contact" id="contactBtn">Contact</button>
+                <button class="button resume" id="resumeBtn">Resume</button>
+            </div>
+              
+            <img src="self-port2.png" alt="My Headshot" class="headshot">
+        </div>
+
+        <!-- Cream Color Box to be revealed  click-->
+        <div class="cream-box">
+            <div class="content">
+                <section id="about">
+                <h2>About Me</h2>
+            </section>
+                <p >I'm Aayush Patel, a computer science major at James Madison
+                    University with a minor in Economics, combining tech skills
+                    with a broader view on how technology shapes our world. 
+                    I'm curious about the possibilities in artificial intelligence
+                    and excited to keep exploring the field. Outside of class, 
+                    I play soccer and tennis, where I enjoy the focus and strategy they bring.
+                    Growing up in Roanoke, Virginia, I've spent countless hours hiking in
+                    the Blue Ridge Mountains, picking up resilience and adaptability—qualities
+                    I bring to every project I take on.</p>
+                    <section id="projects">
+                <h2>Projects</h2>
+            
+                <!-- Image buttons for projects -->
+                <div class="button-container">
+                    <div class="list">
+                        <img src="list-image.png" alt="Project 1" class="button-img" onclick="showProjectModal('project1')">
+                    </div>
+                    <div class="website">
+                        <img src="website.png" alt="Project 2" class="button-img" onclick="showProjectModal('project2')">
+                    </div>
+                    <div class="soon">
+                        <img src="soon.png" alt="Project 3" class="button-img" onclick="showProjectModal('project3')">
+                    </div>
+                </section>
+                </div>
+                <<section id="contact">
+                    <h2>Contact Me</h2>
+                    <p>I’m always open to discussing new projects, opportunities, or just connecting. Feel free to reach out to me through any of the following</p>
+                    <ul>
+                      <li><strong></strong> <a href="mailto:patelaayush12@yahoo.com">email</a></li>
+                      <li><strong></strong> <a href="https://www.linkedin.com/in/aayush-patel-302236327/" target="_blank">linkedin.com</a></li>
+                      <li><strong></strong> <a href="https://github.com/AayushPat" target="_blank">github.com</a></li>
+                    </ul>
+                  </section>
+                  
+            </div>
+        </div>
+        <!-- Modals for projects -->
+        <div id="project1-modal" class="modal">
+            <div class="modal-content" onmousedown="startDrag(event, 'project1-modal')">
+                <span class="close" onclick="closeModal('project1')">&times;</span>
+                <h2> Google Calendar project</h2>
+                <p>This Python script automates the process of transferring assignments
+                     and tasks from Canvas to Google Calendar or Google Tasks. It 
+                     connects to Canvas using its API to fetch assignment due dates, and 
+                     then uses Google Calendar and Google Tasks APIs to create 
+                     corresponding events or tasks. This integration helps keep track 
+                     of upcoming deadlines in a more centralized and organized manner, 
+                     ensuring that nothing is missed.</p>
+                <a href="https://github.com/AayushPat/gcalander" target="_blank">Google Calendar Repository</a>
+            </div>
+        </div>
+
+        <div id="project2-modal" class="modal">
+            <div class="modal-content" onmousedown="startDrag(event, 'project2-modal')">
+                <span class="close" onclick="closeModal('project2')">&times;</span>
+                <h2>First Website</h2>
+                <p>This website itself is a large-scale project focused on balancing design aesthetics
+                    with advanced interactivity and responsive performance. It required careful 
+                    attention to user flow, creating a natural progression from the cover page
+                    into core content. Each interaction and animation is crafted to be both 
+                    engaging and non-intrusive, enhancing usability without compromising speed. 
+                    Implementing features like dynamic modals and responsive layouts involved modular, 
+                    clean code architecture, emphasizing efficiency and maintainability. This project is 
+                    a showcase of thoughtful, user-centered design paired with robust front-end development practices.</p>
+                <a href="https://github.com/AayushPat/portfolio-web" target="_blank">View Website Repository</a>
+            </div>
+        </div>
+
+        <div id="project3-modal" class="modal">
+            <div class="modal-content" onmousedown="startDrag(event, 'project3-modal')">
+                <span class="close" onclick="closeModal('project3')">&times;</span>
+                <h2>Project 3</h2>
+                <p>coming soon...</p>
+                <a href="https://example.com/project3" target="_blank">View Project 3</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
