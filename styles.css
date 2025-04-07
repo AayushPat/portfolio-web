@@ -4,6 +4,33 @@
     font-weight: normal;
     font-style: normal;
 }
+/* Hide the default cursor */
+html, * {
+    cursor: none !important;
+  }
+  
+  /* Custom cursor styles */
+  .custom-cursor {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    background-image: url('leaf.png'); /* Your image */
+    background-size: cover;
+    position: fixed;
+    pointer-events: none; /* Lets clicks pass through */
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  }
+  
+  .custom-cursor.hover {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .custom-cursor.click {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
 
 body {
     margin: 0;
@@ -126,6 +153,8 @@ body {
         transform: translateY(93%) translateX(-100%);
     }
   }
+
+
 .gray-box.enter {
     transform: translateY(0%) translateX(0%);
 }
@@ -157,7 +186,6 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     color: #320047;
-    cursor: pointer;
     border: 3px solid;
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
     position: relative;
@@ -179,7 +207,26 @@ body {
     left: 5px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+    .brown-box {
+        transform: none !important; /* Disable transform */
+        transition: none !important; /* Disable transition */
+        position: absolute; /* Reset positioning */
+        top: 100%;
+    }
+
+    .gray-box {
+        transform: none !important; /* Disable transform */
+        transition: none !important; /* Disable transition */
+        position:absolute;
+        top: 100%;
+
+    }
+    .cream-box {
+        scale: 1.2;
+        top: 200%;
+    }
+
     .button {
         padding: 0.25em 0.75em;
     }
@@ -194,10 +241,22 @@ body {
     background-color: #e3e1c0;
     transform: translate(-50%, -50%);
     z-index: 1;
-    display: block;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #e3e1c0;
 }
+
+.cream-box::-webkit-scrollbar {
+     width: 3vh; /* Width of the scrollbar */
+   }
+  
+  .cream-box::-webkit-scrollbar-track {
+    background-color: transparent; /* Track color */
+  }
+  
+ 
+  
+
 
 .content {
     width: 80%;
@@ -228,19 +287,18 @@ body {
 .list, .website, .soon{
     width: 13vw;
     height: 5.5hw;
-    overflow: hidden;
-    border-radius: 12%;
 }
 
 .button-img {
-    width: 13.228vw; 
+    border-radius: 12%;
+    width: 12vw; 
     height: auto;
     display: block;
     margin-top: -7%;
-    margin-right: 7%;
-    cursor: pointer;
+    margin-right: 5%;
     transition: transform 0.3s ease;
     filter: grayscale(60%);
+    
 }
 
 .button-img:hover {
@@ -267,55 +325,106 @@ body {
     padding: 3%;
     text-align: left;
     cursor: grab; /* Indicate that the box is draggable */
+
 }
 .modal-content p {
     font-size: calc(0.8vw + 0.8vh);  
     line-height: 1.2; 
 }
 
+.modal-content a {
+    text-decoration: none;
+    color: #000000; /* Initial text color */
+
+    background:
+      linear-gradient(
+        to right,
+        rgba(100, 200, 200, 1),
+        rgba(100, 200, 200, 1)
+      ),
+      linear-gradient(
+        to right,
+        rgba(255, 0, 0, 1),
+        rgba(255, 0, 180, 1),
+        rgba(0, 100, 200, 1)
+    );
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+.modal-content a:hover {
+    background-size: 0 3px, 100% 3px;
+  }
 .close:hover,
 .close {
     position: absolute;
     top: 15px;
     right: 25px;
     font-size: 24px;
-    cursor: pointer;
 }
 
 #contact ul {
     list-style-type: none; 
-    padding-left: 15%;
+    padding-left: 12%;
+    padding-right: 12%;
+    display: flex; 
+    justify-content: flex-start; /* Align items to the left */
+    flex-wrap: wrap; /* Allow wrapping to the next row if needed */
+    margin-top: 25px; /* Add space above the list */
+}
 
-  }
+
+#contact li {
+    display: flex;
+    justify-content: center;
+    list-style: none; /* removes bullet points */
+    float: left; /* Fallback for older browsers */
+    display: block; /* Ensure list items behave as blocks */
+    text-align: center; /* Center text within each list item */
+    padding: 65px; /* Adjust padding as needed */
+    padding-top: 10px; /* Adjust top padding */
+    font-size: 20px; /* Set font size */
+    margin-bottom: 10px; /* Add space between list items */
+}
+
+#contact p{
+    padding-right: 40px;
+    padding-left: 30x;
+}
+
 #contact a {
-    color: #3498db; /* Cool blue color for links */
+    box-shadow: inset 0 0 0 0 #54b3d6; /* Initial state: no background */
+    color: #54b3d6; /* Initial text color */
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  
-  #contact a:hover {
-    color: #e74c3c; /* Change to a red shade on hover */
-    transform: scale(1.5); /* Slightly enlarge the link on hover */
-  }
-  
-  #contact a:active {
-    transform: scale(0.9); /* Slightly shrink when clicked */
-  }
-
-  #contact li {
-    float: left;
-    display: block;
-    text-align: center;
-    padding: 58px;
-    padding-top: 10px;
-    font-size: 20px;
-    
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out, transform .3s ease; /* Added transform for active state */
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
 }
-  
-  #contact ul li {
-    margin-bottom: 10px; /* Add some spacing between list items */
-  }
+
+#contact a:hover {
+    box-shadow: inset 100px 0 0 0 #54b3d6; /* Background slides in from the left */
+    color: white; /* Text color changes on hover */
+}
+
+#contact a:active {
+    transform: scale(0.7); /* Slightly shrink when clicked */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #contact ul {
+        padding-left: 5%; /* Reduce padding on smaller screens */
+        justify-content: center; /* Center links on smaller screens */
+    }
+
+    #contact li {
+        padding: 20px; /* Reduce padding on smaller screens */
+        font-size: 16px; /* Reduce font size on smaller screens */
+    }
+}
   
   #contact h2 {
     font-size: 35px; 
