@@ -219,13 +219,15 @@ body {
         transform: none !important; /* Disable transform */
         transition: none !important; /* Disable transition */
         position:absolute;
-        top: 100%;
+        top: 93%;
+        left: 25%;
 
     }
     .cream-box {
         scale: 1.2;
+        left: 200px;
         top: 200%;
-    }
+        }
 
     .button {
         padding: 0.25em 0.75em;
@@ -234,7 +236,7 @@ body {
 
 .cream-box {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     width: 60%;
     height: 60%;
